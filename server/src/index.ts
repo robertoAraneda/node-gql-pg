@@ -1,13 +1,13 @@
 import 'reflect-metadata';
-//import { createConnection } from "typeorm";
 import express from 'express';
-//import { User } from "./entity/User";
 import { ApolloServer } from 'apollo-server-express';
 import { buildSchema } from 'type-graphql';
 import { UserResolver } from './userResolver';
 import { createConnection } from 'typeorm';
+import * as dotenv from 'dotenv';
 
 (async () => {
+    dotenv.config();
     const app = express();
     app.get('/', (_req, res) => {
         res.send('start');
